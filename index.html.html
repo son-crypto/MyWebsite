@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MBTI별 공부 방법 추천</title>
+  <style>
+    body {
+      background-color: #f8f1e7;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #4a3f35;
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 10px;
+      border: 2px solid #d3bfa6;
+      border-radius: 10px;
+      background-color: #fffaf3;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #d3bfa6;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #b59c83;
+    }
+
+    #survey {
+      background-color: #fffaf3;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+      width: 420px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .question {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .question p {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #4a3f35;
+    }
+
+    #result {
+      margin-top: 30px;
+      width: 420px;
+      background-color: #fffaf3;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+      color: #4a3f35;
+    }
+
+    #result h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #result p {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+body.dark-mode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode p,
+    body.dark-mode label,
+    body.dark-mode select,
+    body.dark-mode button,
+    body.dark-mode #result,
+    body.dark-mode #survey {
+      color: #f0f0f0;
+      background-color: #2e2e2e;
+      border-color: #555;
+    }
+
+    body.dark-mode button {
+      background-color: #666;
+    }
+
+    body.dark-mode button:hover {
+      background-color: #888;
+    }
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  select, button {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #survey {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #result {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .question p {
+    font-size: 15px;
+  }
+
+  #result h2 {
+    font-size: 20px;
+  }
+
+  #result p {
+    font-size: 14px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>🧠 MBTI별 공부 전략 추천</h1>
+<p style="font-style: italic; color: #6b5e53; margin-top: -10px; margin-bottom: 20px;">
+  “Adversity is Privilege”
+</p>
+
+
+<button onclick="toggleTheme()">🌙 다크모드 토글</button>
+
+  <div>
+    <select id="mbtiSelect">
+      <option value="">-- MBTI를 선택하세요 --</option>
+      <option value="ISTJ">ISTJ</option>
+      <option value="ISFJ">ISFJ</option>
+      <option value="INFJ">INFJ</option>
+      <option value="INTJ">INTJ</option>
+      <option value="ISTP">ISTP</option>
+      <option value="ISFP">ISFP</option>
+      <option value="INFP">INFP</option>
+      <option value="INTP">INTP</option>
+      <option value="ESTP">ESTP</option>
+      <option value="ESFP">ESFP</option>
+      <option value="ENFP">ENFP</option>
+      <option value="ENTP">ENTP</option>
+      <option value="ESTJ">ESTJ</option>
+      <option value="ESFJ">ESFJ</option>
+      <option value="ENFJ">ENFJ</option>
+      <option value="ENTJ">ENTJ</option>
+    </select>
+  </div>
+
+  <div id="survey">
+    <div class="question">
+      <p>1. 공부할 때 선호하는 장소는?</p>
+      <label><input type="radio" name="q1"> 도서관</label><br>
+      <label><input type="radio" name="q1"> 집</label><br>
+      <label><input type="radio" name="q1"> 카페</label>
+    </div>
+    <div class="question">
+      <p>2. 공부할 때 듣는 음악은?</p>
+      <label><input type="radio" name="q2"> 클래식</label><br>
+      <label><input type="radio" name="q2"> 팝송</label><br>
+      <label><input type="radio" name="q2"> 무음</label>
+    </div>
+    <div class="question">
+      <p>3. 더 잘 집중되는 시간은?</p>
+      <label><input type="radio" name="q3"> 아침</label><br>
+      <label><input type="radio" name="q3"> 오후</label><br>
+      <label><input type="radio" name="q3"> 밤</label>
+    </div>
+    <div class="question">
+      <p>4. 공부 스타일은?</p>
+      <label><input type="radio" name="q4"> 암기 위주</label><br>
+      <label><input type="radio" name="q4"> 이해 위주</label><br>
+      <label><input type="radio" name="q4"> 혼합</label>
+    </div>
+    <div class="question">
+      <p>5. 공부할 때 자주 사용하는 도구는?</p>
+      <label><input type="radio" name="q5"> 노트북</label><br>
+      <label><input type="radio" name="q5"> 종이노트</label><br>
+      <label><input type="radio" name="q5"> 태블릿</label>
+    </div>
+  </div>
+
+  <button onclick="showStudyTip()">추천 받기</button>
+
+  <div id="result"></div>
+
+  <script>
+    const studyTips = {
+  ISTJ: {
+    title: "ISTJ - 실용적 계획형",
+    tip: `ISTJ는 계획과 실천력이 뛰어난 유형으로, 정해진 루틴을 따르는 데 강점을 지닙니다. 이들은 정리된 환경에서 혼자 공부할 때 높은 집중력을 발휘합니다.
+
+📌 추천 전략
+- 과목별 학습 계획표를 주 단위로 나눠 수립하고 성취 체크리스트 활용
+- 개념 정리를 노트에 체계적으로 정리하고, 복습 스케줄을 고정
+- 노션, 에버노트 등 정리 도구를 활용한 학습 노트 아카이브 구축
+- 수업 전 예습, 수업 후 복습을 루틴화하여 지식 내재화
+👉ISTJ와 잘 맞는 스터디 파트너: ESTJ
+→ 함께 명확한 학습 계획을 세우고 체크리스트 기반으로 공부를 진행하면 체계적인 시너지 효과가 큽니다`,
+    image: "images/istj.png"
+  },
+  ISFJ: {
+    title: "ISFJ - 세심한 조력자형",
+    tip: `ISFJ는 책임감 있고 성실하며, 반복적이고 꾸준한 학습에 강점을 보이는 유형입니다. 타인의 기대에 부응하고 싶어 하며, 체계적인 환경에서 성과를 잘 냅니다.
+
+📌 추천 전략
+- 정돈된 책상과 조용한 환경 조성 → 안정감 있는 학습 분위기
+- 색깔 펜을 활용한 시각적 정리 (노트 필기 + 형광펜 요약)
+- 학습 플래너 또는 일일 체크리스트를 활용해 성취 추적
+- 정기적인 복습 루틴 설정 (예: 주 2회 요약 테스트)
+👉ISFJ와 잘 맞는 스터디 파트너: ESFJ
+→ 서로를 격려하며 따뜻한 분위기에서 정리된 노트를 공유하고, 개념을 설명해주는 방식이 효과적입니다.`,
+    image: "images/isfj.png"
+  },
+  INFJ: {
+    title: "INFJ - 통찰력 있는 이상주의자",
+    tip: `INFJ는 깊이 있는 사고와 내면 동기를 중시하며, 전체적인 맥락과 의미를 파악하며 공부하는 데 능숙한 유형입니다. 혼자 조용히 공부하며, 철학적 사고와 주관적 의미 부여를 중요하게 생각합니다.
+
+📌 추천 전략
+- 공부할 내용을 스토리텔링이나 사례 중심으로 이해
+- 자기만의 공부 일지 또는 다이어리 작성
+- 간단한 명상이나 감정 정리 후 공부 시작
+- 학습 목표를 “내가 왜 이걸 배우는가”와 연결해 동기화
+👉INFJ와 잘 맞는 스터디 파트너: INFP
+→ 깊이 있는 대화를 통해 개념을 내면화하고, 공부 동기를 철학적·감성적으로 연결해주는 방식이 좋습니다.`,
+    image: "images/infj.png"
+  },
+  INTJ: {
+    title: "INTJ - 전략적 분석가",
+    tip: `INTJ는 목표 설정, 분석, 문제 해결에 강한 전략형 유형입니다. 긴 호흡의 독학, 구조적 요약, 체계 설계 등에서 탁월합니다.
+
+📌 추천 전략
+- 학습 주제를 전체적으로 구조화하여 개요 → 세부로 정리
+- 모르는 개념은 메타인지적으로 다시 돌아보며 분석
+- 공부 흐름을 시각화한 노션 또는 Trello 사용
+- 긴 시간 혼자 집중할 수 있는 학습 환경 확보
+👉INTJ와 잘 맞는 스터디 파트너: INTP
+→ 구조적 사고와 논리적인 분석을 바탕으로 개념을 토론하고, 복잡한 이론을 시각화하여 공유하면 효과적입니다.`,
+    image: "images/intj.png"
+  },
+  ISTP: {
+    title: "ISTP - 실용적 문제 해결자",
+    tip: `ISTP는 실제 적용과 체험 기반 학습에 능하며, 반복적인 암기보다는 실전 문제 풀이와 원리 분석에 흥미를 느낍니다.
+
+📌 추천 전략
+- 개념을 이해한 후 바로 문제 적용 (이론→문제)
+- 짧고 굵은 학습 루틴 (25분 집중 + 실습 + 피드백)
+- 마인드맵으로 개념 연결, 실전 사례 학습
+- 자주 사용하는 기능적 도구 (계산기, 프로그램 등) 병행
+👉ISTP와 잘 맞는 스터디 파트너: ESTP
+→ 실전 문제를 함께 풀고 즉흥적 아이디어를 주고받으며 공부하는 스타일이 잘 맞습니다.`,
+    image: "images/istp.png"
+  },
+  ISFP: {
+    title: "ISFP - 감성적 예술가",
+    tip: `ISFP는 조용하고 감정적인 안정감을 추구하며, 감각적으로 아름다운 자료에 집중력이 높아집니다. 예술적 요소와 자기 표현형 학습이 효과적입니다.
+
+📌 추천 전략
+- 노트에 드로잉이나 색칠을 활용한 공부 기록
+- 인테리어와 조명이 잘 된 아늑한 환경에서 공부
+- 감정 상태를 공부 리듬에 반영 (감정 체크 후 학습 시작)
+- 영상, 이미지, 오디오 등 시각/청각 자극 기반 콘텐츠 추천
+👉ISFP와 잘 맞는 스터디 파트너: ESFP
+→ 감성적 공감과 시각적 요소가 많은 학습 자료를 함께 보며 분위기 있는 환경에서 편하게 공부하는 것이 좋습니다.`,
+    image: "images/isfp.png"
+  },
+  INFP: {
+    title: "INFP - 이상적 감성가",
+    tip: `INFP는 자신의 관심사에 깊이 몰입하며, 내면 동기가 중요합니다. 논리적 구조보다 이야기, 가치, 창의성이 공부 지속의 핵심입니다.
+
+📌 추천 전략
+- 감정을 자극하는 예시나 글귀로 동기 부여
+- 자신만의 공부 일지나 스크랩북 작성
+- 명확한 규칙보다 목표 중심 루틴 (오늘 공부 목표 리스트 등)
+- 자유로운 형식의 노트 작성 → 창의적 확장
+👉INFP와 잘 맞는 스터디 파트너: ENFJ
+→ 감정적 동기 부여와 목표 중심 계획을 조화롭게 세우며, 서로의 가치관에 공감하며 공부를 지속할 수 있습니다.`,
+    image: "images/infp.png"
+  },
+  INTP: {
+    title: "INTP - 탐구적 이론가",
+    tip: `INTP는 분석적 사고와 독창적 사고력이 뛰어나며, 깊이 있는 개념 탐구를 선호합니다. 체계적인 정리보다는 개념 간 연결이나 논리구조화에 초점을 둡니다.
+
+📌 추천 전략
+- 개념 간 관계를 도식화(Mind Map)로 정리
+- 요약보다 구조화된 핵심 개념 메모 (트리 구조)
+- 왜? 라는 질문을 중심으로 비판적 사고 적용
+- 혼자 공부하면서 개념을 스스로 설명해보는 '페인만 테크닉' 활용
+👉INTP와 잘 맞는 스터디 파트너: INTJ
+→ 깊이 있는 개념 탐구와 구조화된 논의가 잘 맞고, 각자 조사한 내용을 공유하는 방식이 효율적입니다.`,
+    image: "images/intp.png"
+  },
+  ESTP: {
+    title: "ESTP - 행동 지향 실용가",
+    tip: `ESTP는 빠르게 배우고, 직접 해보면서 익히는 스타일입니다. 토론, 퀴즈, 실전 상황에서 성과를 내는 데 유리합니다.
+
+📌 추천 전략
+- 실전 문제 중심 학습 (기출, 퀴즈, 모의고사 등)
+- 속도감 있게 성과를 추적할 수 있는 앱 사용
+- 피드백 즉시 적용 → 반복해서 성취감 획득
+- 짧은 시간 몰입 + 높은 집중력 루틴
+👉ESTP와 잘 맞는 스터디 파트너: ISTP
+→ 실습과 활동 중심의 학습 루틴으로 문제 해결에 집중하며 짧은 시간에 강하게 몰입하는 방식이 유리합니다.`,
+    image: "images/estp.png"
+  },
+  ESFP: {
+    title: "ESFP - 에너지 넘치는 외향형",
+    tip: `ESFP는 긍정적이고 밝은 분위기에서 동기부여가 잘 되며, 사람과 함께하거나 즐거운 학습 방식에서 효율이 높습니다.
+
+📌 추천 전략
+- 친구와의 퀴즈 게임 또는 팀 프로젝트 활용
+- 팝컬처나 실생활 사례에 연결된 학습 (ex. 영상 기반 개념 정리)
+- 소리내어 설명하거나 녹음 후 듣기 방식
+- 자주 칭찬과 보상이 있는 루틴 유지
+👉ESFP와 잘 맞는 스터디 파트너: ISFP
+→ 분위기 좋고 자유로운 환경에서 영상·이미지 기반 자료를 공유하며 함께 즐기며 공부할 때 시너지가 큽니다.`,
+    image: "images/esfp.png"
+  },
+  ENFP: {
+    title: "ENFP - 열정적인 탐험가",
+    tip: `ENFP는 다양한 아이디어에 열려 있으며, 자율성과 동기를 중시합니다. 단조로운 반복보다 창의적이고 변화를 줄 수 있는 학습 방식에 강점을 보입니다.
+
+📌 추천 전략
+- 다양한 매체를 번갈아 활용한 멀티채널 학습 (ex. 유튜브 → 책 → 퀴즈앱)
+- 플래너 작성보다는 시각화된 '목표 보드' 추천
+- 그룹 스터디나 토론 기반 학습에서 동기 부여 상승
+- 지루하지 않도록 25분 집중-5분 휴식 구조 적용
+👉ENFP와 잘 맞는 스터디 파트너: ENTP
+→ 창의적 아이디어 교환과 브레인스토밍이 활발한 토론 기반 스터디에서 흥미와 동기부여가 극대화됩니다.`,
+    image: "images/enfp.png"
+  },
+  ENTP: {
+    title: "ENTP - 창의적 도전자",
+    tip: `ENTP는 새로운 방식의 학습을 좋아하고, 기존의 틀을 비트는 사고를 즐깁니다. 반복보다 도전, 탐색, 발표형 학습이 효과적입니다.
+
+📌 추천 전략
+- 발표나 설명을 통해 공부 내용을 정리
+- 토론 기반 공부 모임에서 시너지 발휘
+- 정형화된 교재보다 개념 중심 탐색 자료 활용
+- 학습 앱, 온라인 강의, 브레인스토밍 방식 선호
+👉ENTP와 잘 맞는 스터디 파트너: ENFP
+→ 자유로운 발표와 의견 교환으로 학습을 즐기며, 게임형 문제풀이 또는 역할극 기반의 복습법이 좋습니다.`,
+    image: "images/entp.png"
+  },
+  ESTJ: {
+    title: "ESTJ - 체계적인 관리자",
+    tip: `ESTJ는 규칙적이고 계획적인 학습 환경에서 강한 성과를 보이며, 명확한 목표와 일정에 따라 공부를 이끌어 갑니다.
+
+📌 추천 전략
+- 체크리스트 기반 목표 설정 및 달성 추적
+- 매일 학습 시간 측정 및 루틴 관리
+- 실용적인 교재, 학습 플래너를 통한 시간 설계
+- 복습 주기와 반복 주기 엄격 설정
+👉ESTJ와 잘 맞는 스터디 파트너: ISTJ
+→ 규칙적인 시간표와 계획을 함께 세우고, 엄격한 복습 루틴을 서로 점검하면서 실천 중심의 학습이 잘 맞습니다.`,
+    image: "images/estj.png"
+  },
+  ESFJ: {
+    title: "ESFJ - 사교적 조력가",
+    tip: `ESFJ는 타인의 기대와 협력을 중요시하며, 스터디나 피드백 중심의 학습에서 성취감을 느낍니다.
+
+📌 추천 전략
+- 공부한 내용을 친구에게 설명하며 복습
+- 함께 계획을 세우고 점검하는 그룹 학습 추천
+- 정리된 필기 + 색상 코드 활용한 복습 자료 작성
+- 목표에 따른 자기 보상 루틴 만들기
+👉ESFJ와 잘 맞는 스터디 파트너: ISFJ
+→ 따뜻한 피드백과 칭찬을 주고받으며 공동 목표를 세우고 함께 점검하는 협력형 학습 환경이 이상적입니다.`,
+    image: "images/esfj.png"
+  },
+  ENFJ: {
+    title: "ENFJ - 이상주의 리더",
+    tip: `ENFJ는 의미 있는 목표에 강한 추진력을 가지며, 타인과의 관계 안에서 책임감 있는 태도로 학습을 지속합니다.
+
+📌 추천 전략
+- 누군가를 돕는 방식의 학습 (예: 스터디 튜터 역할)
+- 계획 → 실천 → 피드백까지 구조화된 루틴
+- 발표나 글쓰기 등 외부 표현 기반 복습법
+- 긍정적인 자기 강화 문장 활용
+👉ENFJ와 잘 맞는 스터디 파트너: INFP
+→ 의미 중심의 공부 목표를 나누며 감정적 지지와 자기 효능감을 함께 북돋아주는 방식이 좋습니다.
+
+`,
+    image: "images/enfj.png"
+  },
+  ENTJ: {
+    title: "ENTJ - 목표지향 전략가",
+    tip: `ENTJ는 리더십과 목표 지향적 사고를 바탕으로 전략적으로 학습을 계획하고 성취하는 데 강점을 지닙니다.
+
+📌 추천 전략
+- 장기 목표를 세분화한 실행 계획표 제작
+- 학습 진도 및 성과를 수치화하여 관리
+- 개념 중심 요약 정리와 문제풀이 결합
+- 효율성과 결과를 높이는 실전 중심 학습 방식 선호
+👉ENTJ와 잘 맞는 스터디 파트너: INTJ
+→ 전략적 목표 설정과 실행 계획을 수립하며 결과 중심의 스터디를 구성하면 효율성이 극대화됩니다.`,
+    image: "images/entj.png"
+  }
+};
+
+function showStudyTip() {
+  const selected = document.getElementById('mbtiSelect').value;
+  const resultBox = document.getElementById('result');
+
+  if (selected && studyTips[selected]) {
+    const info = studyTips[selected];
+    resultBox.innerHTML = `
+      <img src="${info.image}" alt="${info.title}" style="width:100%; border-radius:10px; margin-bottom:15px;">
+      <h2>${info.title}</h2>
+      <p>${info.tip}</p>
+    `;
+  } else {
+    resultBox.innerHTML = "<p>MBTI를 먼저 선택해주세요!</p>";
+  }
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("dark-mode");
+}
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+  }
+  </script>
+
+</body>
+</html>
